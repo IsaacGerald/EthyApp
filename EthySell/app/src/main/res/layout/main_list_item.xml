@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+     <variable
+         name="data"
+         type="com.example.ethysell.model.Data" />
+        <variable
+            name="clickListener"
+            type="com.example.ethysell.adapters.OnProductClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(data)}"
+        android:layout_margin="5dp">
+
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardMaxElevation="2dp"
+            card_view:cardElevation="1dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/card_view">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/profile_image"
+                    android:src="@drawable/main_course3" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile_image"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{data.name}"
+                        android:id="@+id/name"
+
+                        android:layout_marginTop="10dp"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/type_colon"
+                        android:id="@+id/text_interested_in"
+                        android:layout_below="@+id/name"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{data.type}"
+                        android:id="@+id/interested_in"
+                        android:layout_below="@+id/name"
+                        android:layout_toEndOf="@+id/text_interested_in"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#000"
+                        android:layout_marginStart="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ethyscore_colon"
+                        android:id="@+id/text_status"
+                        android:layout_below="@+id/interested_in"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(data.ethicalScore)}"
+                        android:id="@+id/status"
+                        android:layout_below="@+id/interested_in"
+                        android:layout_toEndOf="@+id/text_status"
+                        android:layout_marginTop="4dp"
+                        android:textColor="#000"
+                        android:layout_marginStart="10dp" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+</layout>

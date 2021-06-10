@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">EthySell</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ethicalscore">EthyScore</string>
+    <string name="add_comment">Add Comment</string>
+    <string name="barcodeno">BarcodeNo:</string>
+    <string name="update_product">Update product</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="sign_up">Sign up</string>
+    <string name="endIconDescription_seePassword">See password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="role_staff_user">Role ( Staff/User )</string>
+    <string name="login">Login</string>
+    <string name="name_error_string">Name required</string>
+    <string name="password_error_string">Password required</string>
+    <string name="email_error_string">Email is required</string>
+    <string name="add_review">Add review</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="ethical_score_hint">ethical score</string>
+    <string name="ethyscore">ETHYSCORE</string>
+    <string name="item_name_hint">item name</string>
+    <string name="label">LABEL</string>
+    <string name="photo">PHOTO</string>
+    <string name="description_hint">description</string>
+    <string name="add_product_btn_txt">Add product</string>
+    <string name="barcode_no">BARCODE NO.</string>
+    <string name="barcode_no_hint">barcode no.</string>
+    <string name="type_of_item_hint">TYPE OF ITEM</string>
+    <string name="name">Name:</string>
+    <string name="type">Type:</string>
+    <string name="ethyscore_colon">EthyScore:</string>
+    <string name="type_colon">Type:</string>
+    <string name="edit_product">Edit product</string>
+    <string name="name_hint">Name</string>
+    <string name="invalid_password">Enter 6 digit password</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="name_colon">Name:</string>
+    <string name="title_description">Description</string>
+    <string name="already_have_an_naccount">Already have an\nAccount?</string>
+    <string name="logout">Logout</string>
+</resources>

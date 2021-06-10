@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.ethysell.productdetail.ProductDetailViewModel" />
+
+      <variable
+          name="data"
+          type="com.example.ethysell.model.Data" />
+    </data>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/detailSwipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_variation"
+            tools:context=".productdetail.ProductDetailsFragment">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                android:paddingEnd="10dp"
+                android:paddingStart="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/black" />
+
+
+                <ImageView
+                    android:id="@+id/productImage"
+                    android:layout_width="0dp"
+                    android:layout_height="390dp"
+                    android:background="@drawable/product_image_bg"
+                    android:scaleType="centerCrop"
+                    app:bindProductImage="@{data}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolBar"/>
+
+
+         <RelativeLayout
+             android:id="@+id/product_container"
+             android:layout_width="0dp"
+             android:background="@color/white"
+             android:paddingBottom="10dp"
+             android:layout_height="wrap_content"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/productImage">
+
+             <LinearLayout
+                 android:id="@+id/ethyscore_container"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:layout_marginTop="10dp"
+                 android:layout_alignParentTop="true"
+                 android:layout_alignParentStart="true"
+                 android:layout_marginStart="10dp">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/ethicalscore"
+                     android:layout_gravity="center_vertical"
+                     android:gravity="center_vertical"
+                     android:paddingBottom="4dp"
+                     android:textColor="@color/blue_wave"
+                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                     android:textSize="18sp" />
+                 <ImageView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:src="@drawable/ic_baseline_arrow_blue"
+                     android:layout_gravity="center"/>
+
+                 <TextView
+                     android:id="@+id/txt_price"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:paddingStart="3dp"
+                     android:paddingTop="1dp"
+                     android:gravity="center_vertical"
+                     android:paddingEnd="10dp"
+                     android:textColor="@color/blue_wave"
+                     android:text="@{String.valueOf(data.ethicalScore)}"
+                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                     android:textSize="17sp" />
+             </LinearLayout>
+
+             <LinearLayout
+                 android:id="@+id/label_container"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginStart="10dp"
+                 android:orientation="horizontal"
+                 android:layout_below="@id/ethyscore_container">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/name_colon"
+                     android:textSize="16sp"
+                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
+
+                 <TextView
+                     android:id="@+id/txtLabel"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:paddingStart="8dp"
+                     android:paddingEnd="0dp"
+                     android:text="@{data.name}"
+                     android:textColor="@color/black"
+                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                     android:textSize="17sp" />
+             </LinearLayout>
+
+             <LinearLayout
+                 android:id="@+id/barcode_layout"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="10dp"
+                 android:layout_marginTop="5dp"
+                 android:layout_below="@id/label_container"
+                 android:orientation="horizontal">
+
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@string/barcodeno"
+                     android:textSize="16sp"
+                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
+
+                 <TextView
+                     android:id="@+id/txtBarcode"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:paddingStart="8dp"
+                     android:paddingEnd="0dp"
+                     android:text="@{data.barcodeNo}"
+                     android:textColor="@color/black"
+                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                     android:textSize="17sp" />
+
+             </LinearLayout>
+
+             <LinearLayout
+                 android:id="@+id/type_container"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentEnd="true"
+                 android:layout_marginEnd="24dp"
+                 android:layout_alignTop="@id/barcode_layout"
+                 android:layout_alignBottom="@id/barcode_layout"
+                 android:orientation="horizontal">
+
+<!--                 <TextView-->
+<!--                     android:layout_width="wrap_content"-->
+<!--                     android:layout_height="wrap_content"-->
+<!--                     android:text="Brand/ Type:"-->
+<!--                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"-->
+<!--                     android:textSize="18sp" />-->
+
+                 <TextView
+                     android:id="@+id/txtBrand"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="@{data.type}"
+                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                     android:textSize="17sp" />
+
+             </LinearLayout>
+
+
+         </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/desc_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="8dp"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/product_container"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/reviews_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:id="@+id/txtDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:textSize="18sp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:text="@string/title_description"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{data.description}"
+                    android:textColor="@color/black"
+                    android:alpha="0.8"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/desc_container">
+                <RelativeLayout
+                    android:id="@+id/reviews_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:textSize="18sp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:text="Reviews"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
+
+                    <ImageView
+                        android:id="@+id/seeReviews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="10dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24" />
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/review_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/txtAddComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"
+                    android:text="@string/add_review"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/blue_wave" />
+
+            </LinearLayout>
+
+
+
+
+
+
+<!--           -->
+
+
+
+
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtAddComment"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:text="@string/add_comment"-->
+<!--                android:textColor="@android:color/holo_blue_light"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/review_rv" />-->
+
+<!--            <androidx.constraintlayout.widget.Guideline-->
+<!--                android:id="@+id/guideline2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layout_constraintGuide_begin="-28dp" />-->
+
+<!--            <androidx.constraintlayout.widget.Guideline-->
+<!--                android:id="@+id/guideline3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layout_constraintGuide_begin="63dp" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
